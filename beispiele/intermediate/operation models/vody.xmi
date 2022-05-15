@@ -250,6 +250,7 @@
       <propertyValues value="Database" property="//@infrastructureNodes.3/@aspects.0/@properties.0"/>
     </aspects>
     <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="ServiceDiscovery" qualifiedTechnologyName="Generic.generic"/>
     <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
     <reference import="//@imports.0">
       <technology name="generic">
@@ -266,6 +267,7 @@
     </aspects>
     <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
     <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="ServiceDiscovery" qualifiedTechnologyName="Generic.generic"/>
     <reference import="//@imports.0">
       <technology name="generic">
         <environment environmentName="example"/>
@@ -281,6 +283,7 @@
     </aspects>
     <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
     <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="ServiceDiscovery" qualifiedTechnologyName="Generic.generic"/>
     <reference import="//@imports.0">
       <technology name="generic">
         <environment environmentName="example"/>
@@ -296,6 +299,7 @@
     </aspects>
     <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
     <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="ServiceDiscovery" qualifiedTechnologyName="Generic.generic"/>
     <reference import="//@imports.0">
       <technology name="generic">
         <environment environmentName="example"/>

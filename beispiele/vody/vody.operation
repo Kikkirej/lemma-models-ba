@@ -70,7 +70,7 @@ MonitoringAndLogging is generic::_infrastructure.generic{
 
 @technology(generic)
 VideoDatabase is generic::_infrastructure.generic
-	depends on nodes MonitoringAndLogging, API_Gateway{
+	depends on nodes MonitoringAndLogging, ServiceDiscovery, API_Gateway{
 	aspects{
 		generic::_aspects.ArchitecturePattern(name="Database");
 	}
@@ -78,7 +78,7 @@ VideoDatabase is generic::_infrastructure.generic
 
 @technology(generic)
 AudioDatabase is generic::_infrastructure.generic
-	depends on nodes MonitoringAndLogging, API_Gateway{
+	depends on nodes MonitoringAndLogging, API_Gateway, ServiceDiscovery{
 	aspects{
 		generic::_aspects.ArchitecturePattern(name="Database");
 	}
@@ -86,7 +86,7 @@ AudioDatabase is generic::_infrastructure.generic
 
 @technology(generic)
 AccountDatabase is generic::_infrastructure.generic
-	depends on nodes MonitoringAndLogging, API_Gateway{
+	depends on nodes MonitoringAndLogging, API_Gateway, ServiceDiscovery{
 	aspects{
 		generic::_aspects.ArchitecturePattern(name="Database");
 	}
@@ -94,7 +94,7 @@ AccountDatabase is generic::_infrastructure.generic
 
 @technology(generic)
 SearchDatabase is generic::_infrastructure.generic
-	depends on nodes MonitoringAndLogging, API_Gateway{
+	depends on nodes MonitoringAndLogging, API_Gateway, ServiceDiscovery{
 	aspects{
 		generic::_aspects.ArchitecturePattern(name="Database");
 	}
