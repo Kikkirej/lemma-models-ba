@@ -1,0 +1,33 @@
+import technology from "database.technology" as DB
+import technology from "../technology/javaWithSpring.technology" as Spring
+
+@technology(DB)
+AccountDatenbank is DB::_infrastructure.Postgres {
+		aspects{
+			DB::_aspects.ArchitecturePattern(name="Database");
+	}
+}
+
+@technology(Spring)
+AccountService is Spring::_infrastructure.SpringBootAdmin
+	depends on nodes AccountDatenbank{
+	default values{
+		applicationName="foo"
+		port=42
+		enableAutoConfiguration=true
+		eurekaClientServiceUrlDefaultZone="foo"
+		eurekaInstancePreferIpAddress=false
+	}
+}
+
+@technology(Spring)
+AuthService is Spring::_infrastructure.SpringBootAdmin
+	depends on nodes AccountDatenbank{
+	default values{
+		applicationName="foo"
+		port=42
+		enableAutoConfiguration=true
+		eurekaClientServiceUrlDefaultZone="foo"
+		eurekaInstancePreferIpAddress=false
+	}
+}

@@ -1,0 +1,39 @@
+import technology from "zuul.technology" as Zuul
+import technology from "../technology/javaWithSpring.technology" as Spring
+import technology from "../technology/shared.technology" as shared
+
+@technology(Zuul)
+Zuul is Zuul::_infrastructure.Zuul
+    with operation environment "openjdk:11-jdk-slim"
+    used by nodes AuthService {
+    aspects{
+    	Zuul::_aspects.ArchitecturePattern(name="API-Gateway");
+    }
+    default values {
+        hostname="Zuul"
+        port=8080
+        eurekaUri="http://eureka:8761"
+        mavenArtifactId="zuul"
+        mavenGroupId="de.fhdo.puls.service.zuul"
+        mavenVersion="0.0.1-SNAPSHOT"
+        mavenName="zuul"
+        imageType="SpringComponent"
+        programmingLanguage="Kotlin"
+    }
+}
+
+@technology(Spring)
+@technology(shared)
+AuthService is Spring::_infrastructure.SpringBootAdmin
+	depends on nodes Zuul{
+	default values{
+		applicationName="foo"
+		port=42
+		enableAutoConfiguration=true
+		eurekaClientServiceUrlDefaultZone="foo"
+		eurekaInstancePreferIpAddress=false
+	}
+	endpoints{
+		shared::_protocols.rest: "example";
+	}
+}

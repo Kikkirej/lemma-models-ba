@@ -1,0 +1,6 @@
+version v1{
+	context query{
+		structure Result{/* ... */}
+		structure Request{/* ... */}
+	}	
+}

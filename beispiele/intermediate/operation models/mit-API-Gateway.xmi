@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateOperationModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:intermediate="http://www.fhdo.de/lemma/operation/intermediate" sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/no-api-gateway/mit-API-Gateway.operation">
+  <imports name="Zuul" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/no-api-gateway/zuul.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="Spring" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/technology/javaWithSpring.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="shared" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/technology/shared.technology" importTypeName="TECHNOLOGY"/>
+  <infrastructureNodes name="Zuul" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.0/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Zuul.Zuul">
+    <defaultValues value="Zuul" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.0"/>
+    <defaultValues value="8080" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.1"/>
+    <defaultValues value="http://eureka:8761" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.6"/>
+    <defaultValues value="zuul" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.3"/>
+    <defaultValues value="de.fhdo.puls.service.zuul" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.2"/>
+    <defaultValues value="0.0.1-SNAPSHOT" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.4"/>
+    <defaultValues value="zuul" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.5"/>
+    <defaultValues value="SpringComponent" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.7"/>
+    <defaultValues value="Kotlin" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.8"/>
+    <aspects name="ArchitecturePattern" import="//@imports.0">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="API-Gateway" property="//@infrastructureNodes.0/@aspects.0/@properties.0"/>
+    </aspects>
+    <usedByNodes name="AuthService" qualifiedTechnologyName="javaWithSpring.SpringBootAdmin"/>
+    <reference import="//@imports.0">
+      <technology name="Zuul">
+        <environment environmentName="openjdk:11-jdk-slim"/>
+        <properties name="hostname" type="string">
+          <featureNames>MANDATORY</featureNames>
+        </properties>
+        <properties name="port" type="int">
+          <featureNames>MANDATORY</featureNames>
+        </properties>
+        <properties name="mavenGroupId" type="string">
+          <featureNames>MANDATORY</featureNames>
+        </properties>
+        <properties name="mavenArtifactId" type="string">
+          <featureNames>MANDATORY</featureNames>
+        </properties>
+        <properties name="mavenVersion" type="string">
+          <featureNames>MANDATORY</featureNames>
+        </properties>
+        <properties name="mavenName" type="string">
+          <featureNames>MANDATORY</featureNames>
+        </properties>
+        <properties name="eurekaUri" type="string">
+          <featureNames>MANDATORY</featureNames>
+        </properties>
+        <properties name="imageType" type="string">
+          <featureNames>MANDATORY</featureNames>
+        </properties>
+        <properties name="programmingLanguage" type="string">
+          <featureNames>MANDATORY</featureNames>
+        </properties>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="AuthService" imports="//@imports.1 //@imports.2" operationEnvironment="//@infrastructureNodes.1/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="javaWithSpring.SpringBootAdmin">
+    <endpoints communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json" technology="//@infrastructureNodes.1/@endpoints.0/@endpointTechnology">
+      <addresses>example</addresses>
+      <endpointTechnology name="Shared" import="//@imports.2"/>
+    </endpoints>
+    <defaultValues value="foo" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.0"/>
+    <defaultValues value="42" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.1"/>
+    <defaultValues value="true" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.2"/>
+    <defaultValues value="foo" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.3"/>
+    <defaultValues value="false" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.4"/>
+    <dependsOnNodes name="Zuul" qualifiedTechnologyName="Zuul.Zuul"/>
+    <reference import="//@imports.1">
+      <technology name="SpringBootAdmin">
+        <environment environmentName="spring-boot-admin" default="true"/>
+        <properties name="applicationName" type="string">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="port" type="int">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="enableAutoConfiguration" type="boolean">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="eurekaClientServiceUrlDefaultZone" type="string">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="eurekaInstancePreferIpAddress" type="boolean">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+</intermediate:IntermediateOperationModel>

@@ -1,0 +1,7 @@
+technology Generic{
+    infrastructure technologies {
+    	generic{
+    		operation environments = "example";
+    	}
+    }
+}

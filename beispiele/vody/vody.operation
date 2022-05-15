@@ -1,0 +1,101 @@
+import technology from "generic.technology" as generic
+import technology from "../technology/shared.technology" as shared
+import microservices from "vody.services" as vs
+import technology from "../technology/container_base.technology" as container_base
+
+
+@technology(container_base)
+container VideoContainer
+	deployment technology container_base::_deployment.Kubernetes
+    with operation environment "golang"
+    deploys vs::v_1.vody.VideoService
+    depends on nodes API_Gateway, MonitoringAndLogging, ServiceDiscovery, VideoDatabase 
+{}
+
+@technology(container_base)
+container AudioContainer
+	deployment technology container_base::_deployment.Kubernetes
+    with operation environment "golang"
+    deploys vs::v_1.vody.AudioService
+    depends on nodes API_Gateway, MonitoringAndLogging, ServiceDiscovery, AudioDatabase
+{}
+
+@technology(container_base)
+container AuthContainer
+	deployment technology container_base::_deployment.Kubernetes
+    with operation environment "golang"
+    deploys vs::v_1.vody.AuthService
+    depends on nodes API_Gateway, MonitoringAndLogging, ServiceDiscovery, AccountContainer
+{}
+
+@technology(container_base)
+container AccountContainer
+	deployment technology container_base::_deployment.Kubernetes
+    with operation environment "golang"
+    deploys vs::v_1.vody.AccountService
+    depends on nodes API_Gateway, MonitoringAndLogging, ServiceDiscovery, AccountDatabase
+{}
+
+@technology(container_base)
+container QueryContainer
+	deployment technology container_base::_deployment.Kubernetes
+    with operation environment "golang"
+    deploys vs::v_1.vody.QueryService
+    depends on nodes API_Gateway, MonitoringAndLogging, ServiceDiscovery, SearchDatabase
+{}
+
+@technology(generic)
+API_Gateway is generic::_infrastructure.generic
+	depends on nodes MonitoringAndLogging, ServiceDiscovery{
+	aspects{
+		generic::_aspects.ArchitecturePattern(name="API-Gateway");
+	}
+}
+
+@technology(generic)
+ServiceDiscovery is generic::_infrastructure.generic
+depends on nodes MonitoringAndLogging{
+	aspects{
+		generic::_aspects.ArchitecturePattern(name="ServiceDiscovery");
+	}
+}
+
+@technology(generic)
+MonitoringAndLogging is generic::_infrastructure.generic{
+	aspects{
+		generic::_aspects.ArchitecturePattern(name="Monitoring");
+		generic::_aspects.ArchitecturePattern(name="LogServer");
+	}
+}
+
+@technology(generic)
+VideoDatabase is generic::_infrastructure.generic
+	depends on nodes MonitoringAndLogging, API_Gateway{
+	aspects{
+		generic::_aspects.ArchitecturePattern(name="Database");
+	}
+}
+
+@technology(generic)
+AudioDatabase is generic::_infrastructure.generic
+	depends on nodes MonitoringAndLogging, API_Gateway{
+	aspects{
+		generic::_aspects.ArchitecturePattern(name="Database");
+	}
+}
+
+@technology(generic)
+AccountDatabase is generic::_infrastructure.generic
+	depends on nodes MonitoringAndLogging, API_Gateway{
+	aspects{
+		generic::_aspects.ArchitecturePattern(name="Database");
+	}
+}
+
+@technology(generic)
+SearchDatabase is generic::_infrastructure.generic
+	depends on nodes MonitoringAndLogging, API_Gateway{
+	aspects{
+		generic::_aspects.ArchitecturePattern(name="Database");
+	}
+}

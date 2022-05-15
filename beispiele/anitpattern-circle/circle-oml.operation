@@ -1,0 +1,14 @@
+import technology from "generic.technology" as generic
+import microservices from "circle.services" as ms
+
+@technology(generic)
+QyeryService is generic::_infrastructure.generic 
+	depends on nodes AuthService{}
+
+@technology(generic)
+AccountService is generic::_infrastructure.generic 
+	depends on nodes QyeryService{}
+
+@technology(generic)
+AuthService is generic::_infrastructure.generic 
+	depends on nodes AccountService{}

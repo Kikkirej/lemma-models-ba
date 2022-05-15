@@ -1,0 +1,44 @@
+import technology from "../technology/shared.technology" as shared
+
+@technology(shared)
+@endpoints(shared::_protocols.rest: "/video";)
+functional microservice vody.VideoService version v_1{
+	interface foo{
+		foo();
+	}
+}
+
+@technology(shared)
+@endpoints(shared::_protocols.rest: "/audio";)
+functional microservice vody.AudioService version v_1{
+	interface foo{
+		foo();
+	}
+}
+
+@technology(shared)
+@endpoints(shared::_protocols.rest: "/auth";)
+functional microservice vody.AuthService version v_1{
+	required microservices{
+		AccountService
+	}
+	interface foo{
+		foo();
+	}
+}
+
+@technology(shared)
+@endpoints(shared::_protocols.rest: "/account";)
+functional microservice vody.AccountService version v_1{
+	interface foo{
+		foo();
+	}
+}
+
+@technology(shared)
+@endpoints(shared::_protocols.rest: "/query";)
+functional microservice vody.QueryService version v_1{
+	interface foo{
+		foo();
+	}
+}

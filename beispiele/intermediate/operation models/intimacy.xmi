@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateOperationModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:intermediate="http://www.fhdo.de/lemma/operation/intermediate" sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/antipattern-intimacy/intimacy.operation">
+  <imports name="DB" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/antipattern-intimacy/database.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="Spring" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/technology/javaWithSpring.technology" importTypeName="TECHNOLOGY"/>
+  <infrastructureNodes name="AccountDatenbank" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.0/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Datenbank.Postgres">
+    <aspects name="ArchitecturePattern" import="//@imports.0">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="Database" property="//@infrastructureNodes.0/@aspects.0/@properties.0"/>
+    </aspects>
+    <reference import="//@imports.0">
+      <technology name="Postgres">
+        <environment environmentName="postgres:14.2"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="AccountService" imports="//@imports.1" operationEnvironment="//@infrastructureNodes.1/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="javaWithSpring.SpringBootAdmin">
+    <defaultValues value="foo" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.0"/>
+    <defaultValues value="42" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.1"/>
+    <defaultValues value="true" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.2"/>
+    <defaultValues value="foo" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.3"/>
+    <defaultValues value="false" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.4"/>
+    <dependsOnNodes name="AccountDatenbank" qualifiedTechnologyName="Datenbank.Postgres"/>
+    <reference import="//@imports.1">
+      <technology name="SpringBootAdmin">
+        <environment environmentName="spring-boot-admin" default="true"/>
+        <properties name="applicationName" type="string">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="port" type="int">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="enableAutoConfiguration" type="boolean">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="eurekaClientServiceUrlDefaultZone" type="string">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="eurekaInstancePreferIpAddress" type="boolean">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="AuthService" imports="//@imports.1" operationEnvironment="//@infrastructureNodes.2/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="javaWithSpring.SpringBootAdmin">
+    <defaultValues value="foo" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.0"/>
+    <defaultValues value="42" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.1"/>
+    <defaultValues value="true" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.2"/>
+    <defaultValues value="foo" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.3"/>
+    <defaultValues value="false" technologySpecificProperty="//@infrastructureNodes.1/@reference/@technology/@properties.4"/>
+    <dependsOnNodes name="AccountDatenbank" qualifiedTechnologyName="Datenbank.Postgres"/>
+    <reference import="//@imports.1">
+      <technology name="SpringBootAdmin">
+        <environment environmentName="spring-boot-admin" default="true"/>
+        <properties name="applicationName" type="string">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="port" type="int">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="enableAutoConfiguration" type="boolean">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="eurekaClientServiceUrlDefaultZone" type="string">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="eurekaInstancePreferIpAddress" type="boolean">
+          <featureNames>MANDATORY</featureNames>
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+</intermediate:IntermediateOperationModel>

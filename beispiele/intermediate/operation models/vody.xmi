@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateOperationModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:intermediate="http://www.fhdo.de/lemma/operation/intermediate" sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/vody/vody.operation">
+  <imports name="generic" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/vody/generic.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="shared" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/technology/shared.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="vs" importUri="file://C:/Users/info/workspaces/runtime-EclipseApplication/beispiele-bachelorthesis/intermediate/service models/vody.xmi" importTypeName="MICROSERVICES"/>
+  <imports name="container_base" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/technology/container_base.technology" importTypeName="TECHNOLOGY"/>
+  <containers name="VideoContainer" imports="//@imports.3" operationEnvironment="//@containers.0/@technologyReference/@technology/@environment" qualifiedDeploymentTechnologyName="container_base.Kubernetes">
+    <deployedServices name="vody.VideoService" version="v_1" qualifiedName="v_1.vody.VideoService" imported="true" import="//@imports.2" effectivelyImplemented="true" microserviceType="FUNCTIONAL" visibility="ARCHITECTURE"/>
+    <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="ServiceDiscovery" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="VideoDatabase" qualifiedTechnologyName="Generic.generic"/>
+    <technologyReference import="//@imports.3">
+      <technology name="Kubernetes">
+        <environment environmentName="golang"/>
+        <properties name="springApplicationName" type="string"/>
+        <properties name="serverPort" type="int"/>
+        <properties name="springDatasourceUsername" type="string"/>
+        <properties name="springDatasourcePassword" type="string"/>
+        <properties name="springDatasourceUrl" type="string"/>
+        <properties name="springDataMongodbHost" type="string"/>
+        <properties name="springDataMongodbPort" type="int"/>
+        <properties name="springDataMongodbUri" type="string"/>
+        <properties name="springDataMongodbDatabase" type="string"/>
+        <properties name="springDataMongodbUsername" type="string"/>
+        <properties name="stringDataMongodbPassword" type="string"/>
+        <properties name="eurekaUri" type="string"/>
+        <properties name="apiKeyHeader" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="apiKeyValidKey" type="string"/>
+        <properties name="apiKeyValue" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="ComposePart" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="Dockerfile" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="rateLimitPerMinute" type="int"/>
+      </technology>
+    </technologyReference>
+  </containers>
+  <containers name="AudioContainer" imports="//@imports.3" operationEnvironment="//@containers.1/@technologyReference/@technology/@environment" qualifiedDeploymentTechnologyName="container_base.Kubernetes">
+    <deployedServices name="vody.AudioService" version="v_1" qualifiedName="v_1.vody.AudioService" imported="true" import="//@imports.2" effectivelyImplemented="true" microserviceType="FUNCTIONAL" visibility="ARCHITECTURE"/>
+    <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="ServiceDiscovery" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="AudioDatabase" qualifiedTechnologyName="Generic.generic"/>
+    <technologyReference import="//@imports.3">
+      <technology name="Kubernetes">
+        <environment environmentName="golang"/>
+        <properties name="springApplicationName" type="string"/>
+        <properties name="serverPort" type="int"/>
+        <properties name="springDatasourceUsername" type="string"/>
+        <properties name="springDatasourcePassword" type="string"/>
+        <properties name="springDatasourceUrl" type="string"/>
+        <properties name="springDataMongodbHost" type="string"/>
+        <properties name="springDataMongodbPort" type="int"/>
+        <properties name="springDataMongodbUri" type="string"/>
+        <properties name="springDataMongodbDatabase" type="string"/>
+        <properties name="springDataMongodbUsername" type="string"/>
+        <properties name="stringDataMongodbPassword" type="string"/>
+        <properties name="eurekaUri" type="string"/>
+        <properties name="apiKeyHeader" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="apiKeyValidKey" type="string"/>
+        <properties name="apiKeyValue" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="ComposePart" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="Dockerfile" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="rateLimitPerMinute" type="int"/>
+      </technology>
+    </technologyReference>
+  </containers>
+  <containers name="AuthContainer" imports="//@imports.3" operationEnvironment="//@containers.2/@technologyReference/@technology/@environment" qualifiedDeploymentTechnologyName="container_base.Kubernetes">
+    <deployedServices name="vody.AuthService" version="v_1" qualifiedName="v_1.vody.AuthService" imported="true" import="//@imports.2" effectivelyImplemented="true" microserviceType="FUNCTIONAL" visibility="ARCHITECTURE"/>
+    <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="ServiceDiscovery" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="AccountContainer" qualifiedTechnologyName="container_base.Kubernetes"/>
+    <technologyReference import="//@imports.3">
+      <technology name="Kubernetes">
+        <environment environmentName="golang"/>
+        <properties name="springApplicationName" type="string"/>
+        <properties name="serverPort" type="int"/>
+        <properties name="springDatasourceUsername" type="string"/>
+        <properties name="springDatasourcePassword" type="string"/>
+        <properties name="springDatasourceUrl" type="string"/>
+        <properties name="springDataMongodbHost" type="string"/>
+        <properties name="springDataMongodbPort" type="int"/>
+        <properties name="springDataMongodbUri" type="string"/>
+        <properties name="springDataMongodbDatabase" type="string"/>
+        <properties name="springDataMongodbUsername" type="string"/>
+        <properties name="stringDataMongodbPassword" type="string"/>
+        <properties name="eurekaUri" type="string"/>
+        <properties name="apiKeyHeader" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="apiKeyValidKey" type="string"/>
+        <properties name="apiKeyValue" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="ComposePart" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="Dockerfile" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="rateLimitPerMinute" type="int"/>
+      </technology>
+    </technologyReference>
+  </containers>
+  <containers name="AccountContainer" imports="//@imports.3" operationEnvironment="//@containers.3/@technologyReference/@technology/@environment" qualifiedDeploymentTechnologyName="container_base.Kubernetes">
+    <deployedServices name="vody.AccountService" version="v_1" qualifiedName="v_1.vody.AccountService" imported="true" import="//@imports.2" effectivelyImplemented="true" microserviceType="FUNCTIONAL" visibility="ARCHITECTURE"/>
+    <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="ServiceDiscovery" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="AccountDatabase" qualifiedTechnologyName="Generic.generic"/>
+    <technologyReference import="//@imports.3">
+      <technology name="Kubernetes">
+        <environment environmentName="golang"/>
+        <properties name="springApplicationName" type="string"/>
+        <properties name="serverPort" type="int"/>
+        <properties name="springDatasourceUsername" type="string"/>
+        <properties name="springDatasourcePassword" type="string"/>
+        <properties name="springDatasourceUrl" type="string"/>
+        <properties name="springDataMongodbHost" type="string"/>
+        <properties name="springDataMongodbPort" type="int"/>
+        <properties name="springDataMongodbUri" type="string"/>
+        <properties name="springDataMongodbDatabase" type="string"/>
+        <properties name="springDataMongodbUsername" type="string"/>
+        <properties name="stringDataMongodbPassword" type="string"/>
+        <properties name="eurekaUri" type="string"/>
+        <properties name="apiKeyHeader" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="apiKeyValidKey" type="string"/>
+        <properties name="apiKeyValue" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="ComposePart" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="Dockerfile" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="rateLimitPerMinute" type="int"/>
+      </technology>
+    </technologyReference>
+  </containers>
+  <containers name="QueryContainer" imports="//@imports.3" operationEnvironment="//@containers.4/@technologyReference/@technology/@environment" qualifiedDeploymentTechnologyName="container_base.Kubernetes">
+    <deployedServices name="vody.QueryService" version="v_1" qualifiedName="v_1.vody.QueryService" imported="true" import="//@imports.2" effectivelyImplemented="true" microserviceType="FUNCTIONAL" visibility="ARCHITECTURE"/>
+    <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="ServiceDiscovery" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="SearchDatabase" qualifiedTechnologyName="Generic.generic"/>
+    <technologyReference import="//@imports.3">
+      <technology name="Kubernetes">
+        <environment environmentName="golang"/>
+        <properties name="springApplicationName" type="string"/>
+        <properties name="serverPort" type="int"/>
+        <properties name="springDatasourceUsername" type="string"/>
+        <properties name="springDatasourcePassword" type="string"/>
+        <properties name="springDatasourceUrl" type="string"/>
+        <properties name="springDataMongodbHost" type="string"/>
+        <properties name="springDataMongodbPort" type="int"/>
+        <properties name="springDataMongodbUri" type="string"/>
+        <properties name="springDataMongodbDatabase" type="string"/>
+        <properties name="springDataMongodbUsername" type="string"/>
+        <properties name="stringDataMongodbPassword" type="string"/>
+        <properties name="eurekaUri" type="string"/>
+        <properties name="apiKeyHeader" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="apiKeyValidKey" type="string"/>
+        <properties name="apiKeyValue" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="ComposePart" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="Dockerfile" type="string">
+          <featureNames>SINGLE_VALUED</featureNames>
+        </properties>
+        <properties name="rateLimitPerMinute" type="int"/>
+      </technology>
+    </technologyReference>
+  </containers>
+  <infrastructureNodes name="API_Gateway" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.0/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <aspects name="ArchitecturePattern" import="//@imports.0">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="API-Gateway" property="//@infrastructureNodes.0/@aspects.0/@properties.0"/>
+    </aspects>
+    <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="ServiceDiscovery" qualifiedTechnologyName="Generic.generic"/>
+    <reference import="//@imports.0">
+      <technology name="generic">
+        <environment environmentName="example"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="ServiceDiscovery" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.1/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <aspects name="ArchitecturePattern" import="//@imports.0">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="ServiceDiscovery" property="//@infrastructureNodes.1/@aspects.0/@properties.0"/>
+    </aspects>
+    <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <reference import="//@imports.0">
+      <technology name="generic">
+        <environment environmentName="example"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="MonitoringAndLogging" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.2/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <aspects name="ArchitecturePattern" import="//@imports.0">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="Monitoring" property="//@infrastructureNodes.2/@aspects.0/@properties.0"/>
+    </aspects>
+    <aspects name="ArchitecturePattern" import="//@imports.0">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="LogServer" property="//@infrastructureNodes.2/@aspects.1/@properties.0"/>
+    </aspects>
+    <reference import="//@imports.0">
+      <technology name="generic">
+        <environment environmentName="example"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="VideoDatabase" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.3/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <aspects name="ArchitecturePattern" import="//@imports.0">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="Database" property="//@infrastructureNodes.3/@aspects.0/@properties.0"/>
+    </aspects>
+    <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <reference import="//@imports.0">
+      <technology name="generic">
+        <environment environmentName="example"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="AudioDatabase" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.4/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <aspects name="ArchitecturePattern" import="//@imports.0">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="Database" property="//@infrastructureNodes.4/@aspects.0/@properties.0"/>
+    </aspects>
+    <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <reference import="//@imports.0">
+      <technology name="generic">
+        <environment environmentName="example"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="AccountDatabase" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.5/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <aspects name="ArchitecturePattern" import="//@imports.0">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="Database" property="//@infrastructureNodes.5/@aspects.0/@properties.0"/>
+    </aspects>
+    <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <reference import="//@imports.0">
+      <technology name="generic">
+        <environment environmentName="example"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="SearchDatabase" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.6/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <aspects name="ArchitecturePattern" import="//@imports.0">
+      <properties name="name" type="string">
+        <featureNames>MANDATORY</featureNames>
+      </properties>
+      <propertyValues value="Database" property="//@infrastructureNodes.6/@aspects.0/@properties.0"/>
+    </aspects>
+    <dependsOnNodes name="MonitoringAndLogging" qualifiedTechnologyName="Generic.generic"/>
+    <dependsOnNodes name="API_Gateway" qualifiedTechnologyName="Generic.generic"/>
+    <reference import="//@imports.0">
+      <technology name="generic">
+        <environment environmentName="example"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+</intermediate:IntermediateOperationModel>

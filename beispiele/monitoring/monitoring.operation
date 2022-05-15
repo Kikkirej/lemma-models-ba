@@ -1,0 +1,8 @@
+import technology from "monitoring.technology" as Monitoring
+
+@technology(Monitoring)
+Monitoring is Monitoring::_infrastructure.GenericMonitoring{
+	aspects{
+		Monitoring::_aspects.ArchitecturePattern(name="Monitoring");
+	}
+}

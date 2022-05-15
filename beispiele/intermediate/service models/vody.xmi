@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:intermediate="http://www.fhdo.de/lemma/service/intermediate" sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/vody/vody.services">
+  <imports name="shared" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/technology/shared.technology" importTypeName="TECHNOLOGY"/>
+  <microservices sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/vody/vody.services" name="vody.VideoService" version="v_1" qualifiedName="v_1.vody.VideoService" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <technologies name="shared" import="//@imports.0"/>
+    <endpoints communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json" technology="//@microservices.0/@technologies.0">
+      <addresses>/video</addresses>
+    </endpoints>
+    <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+    <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+    <interfaces name="foo" qualifiedName="v_1.vody.VideoService.foo" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+      <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+      <operations name="foo" qualifiedName="v_1.vody.VideoService.foo.foo" visibility="ARCHITECTURE">
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+        <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+      </operations>
+    </interfaces>
+  </microservices>
+  <microservices sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/vody/vody.services" name="vody.AudioService" version="v_1" qualifiedName="v_1.vody.AudioService" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <technologies name="shared" import="//@imports.0"/>
+    <endpoints communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json" technology="//@microservices.1/@technologies.0">
+      <addresses>/audio</addresses>
+    </endpoints>
+    <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+    <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+    <interfaces name="foo" qualifiedName="v_1.vody.AudioService.foo" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+      <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+      <operations name="foo" qualifiedName="v_1.vody.AudioService.foo.foo" visibility="ARCHITECTURE">
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+        <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+      </operations>
+    </interfaces>
+  </microservices>
+  <microservices sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/vody/vody.services" name="vody.AuthService" version="v_1" qualifiedName="v_1.vody.AuthService" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <technologies name="shared" import="//@imports.0"/>
+    <endpoints communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json" technology="//@microservices.2/@technologies.0">
+      <addresses>/auth</addresses>
+    </endpoints>
+    <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+    <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+    <requiredMicroservices name="vody.AccountService" version="v_1" qualifiedName="v_1.vody.AccountService" localMicroservice="//@microservices.3"/>
+    <interfaces name="foo" qualifiedName="v_1.vody.AuthService.foo" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+      <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+      <operations name="foo" qualifiedName="v_1.vody.AuthService.foo.foo" visibility="ARCHITECTURE">
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+        <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+      </operations>
+    </interfaces>
+  </microservices>
+  <microservices sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/vody/vody.services" name="vody.AccountService" version="v_1" qualifiedName="v_1.vody.AccountService" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <technologies name="shared" import="//@imports.0"/>
+    <endpoints communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json" technology="//@microservices.3/@technologies.0">
+      <addresses>/account</addresses>
+    </endpoints>
+    <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+    <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+    <interfaces name="foo" qualifiedName="v_1.vody.AccountService.foo" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+      <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+      <operations name="foo" qualifiedName="v_1.vody.AccountService.foo.foo" visibility="ARCHITECTURE">
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+        <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+      </operations>
+    </interfaces>
+  </microservices>
+  <microservices sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/vody/vody.services" name="vody.QueryService" version="v_1" qualifiedName="v_1.vody.QueryService" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <technologies name="shared" import="//@imports.0"/>
+    <endpoints communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json" technology="//@microservices.4/@technologies.0">
+      <addresses>/query</addresses>
+    </endpoints>
+    <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+    <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+    <interfaces name="foo" qualifiedName="v_1.vody.QueryService.foo" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+      <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+      <operations name="foo" qualifiedName="v_1.vody.QueryService.foo.foo" visibility="ARCHITECTURE">
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+        <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+      </operations>
+    </interfaces>
+  </microservices>
+</intermediate:IntermediateServiceModel>

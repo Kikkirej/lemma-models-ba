@@ -1,0 +1,12 @@
+technology GenericMonitoring{
+	infrastructure technologies {
+		GenericMonitoring{
+			operation environments = "";
+		}
+	}
+	operation aspects {
+		aspect ArchitecturePattern for infrastructure{
+    		string name <mandatory>; 
+    	}
+	}
+}

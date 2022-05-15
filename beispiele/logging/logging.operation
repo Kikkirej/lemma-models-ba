@@ -1,0 +1,8 @@
+import technology from "fluentd.technology" as Fluentd
+
+@technology(Fluentd)
+LogServer is Fluentd::_infrastructure.fluentd{
+	aspects{
+		Fluentd::_aspects.ArchitecturePattern(name="LogServer");
+	}
+}

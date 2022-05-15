@@ -1,0 +1,7 @@
+technology Architecture{
+	operation aspects {
+    	aspect ArchitecturePattern for infrastructure{
+    		string name <mandatory>; 
+    	}
+    }
+}

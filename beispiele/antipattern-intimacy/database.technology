@@ -1,0 +1,18 @@
+technology Datenbank{
+    infrastructure technologies {
+        MySQL{
+        	operation environments = "mysql:8.0.28";
+        }
+        MSSQL{
+        	operation environments = "mcr.microsoft.com/mssql/server:2019-latest";
+        }
+        Postgres{
+        	operation environments = "postgres:14.2";
+        }
+    }
+    operation aspects {
+    	aspect ArchitecturePattern for infrastructure{
+    		string name <mandatory>; // Name wäre Datenbank
+    	}
+    }
+}

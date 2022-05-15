@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateDataModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/api-versioning/api-versioning.data">
+  <versions name="v1">
+    <contexts name="query" qualifiedName="v1.query">
+      <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="Result" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="v1.query.Result"/>
+      <complexTypes xsi:type="intermediate:IntermediateDataStructure" name="Request" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="v1.query.Request"/>
+    </contexts>
+  </versions>
+</intermediate:IntermediateDataModel>

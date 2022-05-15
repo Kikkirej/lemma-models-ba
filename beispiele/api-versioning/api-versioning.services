@@ -1,0 +1,10 @@
+import datatypes from "api-versioning.data" as queryData
+
+functional microservice vody.QueryService version v2_x_y {
+	interface Interface{
+		public query(
+			sync in request : queryData::v1.query.Request,
+			sync out reply : queryData::v1.query.Result
+		);
+	}
+}

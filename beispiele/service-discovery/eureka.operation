@@ -1,0 +1,20 @@
+import technology from "../technology/eureka.technology" as Eureka
+
+@technology(Eureka)
+Eureka is Eureka::_infrastructure.Eureka
+    with operation environment "openjdk:11-jdk-slim"{
+    aspects{
+    	Eureka::_aspects.ArchitecturePattern(name="ServiceDiscovery");
+    }
+    default values {
+        hostname="eureka"
+        port=8761
+		imageType="SpringComponent"
+		mavenArtifactId="Eureka"
+        mavenGroupId="de.fhdo.puls.service.eureka"
+        mavenVersion="0.0.1-SNAPSHOT"
+        mavenName="eureka"
+        programmingLanguage="Java"
+    }
+ 
+}

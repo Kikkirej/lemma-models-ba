@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:intermediate="http://www.fhdo.de/lemma/service/intermediate" sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/anitpattern-circle/circle.services">
+  <microservices sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/anitpattern-circle/circle.services" name="vody.Test" qualifiedName="vody.Test" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <requiredMicroservices name="vody.AuthService" qualifiedName="vody.AuthService" localMicroservice="//@microservices.3"/>
+    <interfaces name="Interface1" qualifiedName="vody.Test.Interface1" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="foo" qualifiedName="vody.Test.Interface1.foo" visibility="OclUndefined"/>
+    </interfaces>
+  </microservices>
+  <microservices sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/anitpattern-circle/circle.services" name="vody.QueryService" qualifiedName="vody.QueryService" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <requiredMicroservices name="vody.AuthService" qualifiedName="vody.AuthService" localMicroservice="//@microservices.3"/>
+    <interfaces name="Interface1" qualifiedName="vody.QueryService.Interface1" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="foo" qualifiedName="vody.QueryService.Interface1.foo" visibility="OclUndefined"/>
+    </interfaces>
+  </microservices>
+  <microservices sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/anitpattern-circle/circle.services" name="vody.AccountService" qualifiedName="vody.AccountService" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <requiredMicroservices name="vody.QueryService" qualifiedName="vody.QueryService" localMicroservice="//@microservices.1"/>
+    <interfaces name="Interface2" qualifiedName="vody.AccountService.Interface2" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="foo" qualifiedName="vody.AccountService.Interface2.foo" visibility="OclUndefined"/>
+    </interfaces>
+  </microservices>
+  <microservices sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/anitpattern-circle/circle.services" name="vody.AuthService" qualifiedName="vody.AuthService" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <requiredMicroservices name="vody.AccountService" qualifiedName="vody.AccountService" localMicroservice="//@microservices.2"/>
+    <interfaces name="Interface3" qualifiedName="vody.AuthService.Interface3" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <operations name="foo" qualifiedName="vody.AuthService.Interface3.foo" visibility="OclUndefined"/>
+    </interfaces>
+  </microservices>
+</intermediate:IntermediateServiceModel>

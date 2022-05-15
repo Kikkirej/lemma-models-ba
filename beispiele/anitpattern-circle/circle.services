@@ -1,0 +1,35 @@
+functional microservice vody.Test{
+	required microservices {
+		AuthService
+	}
+	interface Interface1{
+		public foo();
+	}
+}
+
+functional microservice vody.QueryService{
+	required microservices {
+		AuthService
+	}
+	interface Interface1{
+		public foo();
+	}
+}
+
+functional microservice vody.AccountService {
+	required microservices {
+		QueryService
+	}
+	interface Interface2{
+		public foo();
+	}
+}
+
+functional microservice vody.AuthService {
+	required microservices {
+		AccountService
+	}
+	interface Interface3{
+		public foo();
+	}
+}
