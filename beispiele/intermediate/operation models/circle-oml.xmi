@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<intermediate:IntermediateOperationModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:intermediate="http://www.fhdo.de/lemma/operation/intermediate" sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/anitpattern-circle/circle-oml.operation">
+  <imports name="generic" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/anitpattern-circle/generic.technology" importTypeName="TECHNOLOGY"/>
+  <imports name="ms" importUri="file://C:/Users/info/workspaces/runtime-EclipseApplication/beispiele-bachelorthesis/intermediate/service models/circle.xmi" importTypeName="MICROSERVICES"/>
+  <infrastructureNodes name="QyeryService" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.0/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <dependsOnNodes name="AuthService" qualifiedTechnologyName="Generic.generic"/>
+    <reference import="//@imports.0">
+      <technology name="generic">
+        <environment environmentName="example"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="AccountService" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.1/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <dependsOnNodes name="QyeryService" qualifiedTechnologyName="Generic.generic"/>
+    <reference import="//@imports.0">
+      <technology name="generic">
+        <environment environmentName="example"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="AuthService" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.2/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <dependsOnNodes name="AccountService" qualifiedTechnologyName="Generic.generic"/>
+    <reference import="//@imports.0">
+      <technology name="generic">
+        <environment environmentName="example"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+</intermediate:IntermediateOperationModel>

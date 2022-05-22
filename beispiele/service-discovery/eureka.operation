@@ -1,7 +1,8 @@
 import technology from "../technology/eureka.technology" as Eureka
+import technology from "generic.technology" as generic
 
 @technology(Eureka)
-Eureka is Eureka::_infrastructure.Eureka
+ServiceDiscovery is Eureka::_infrastructure.Eureka
     with operation environment "openjdk:11-jdk-slim"{
     aspects{
     	Eureka::_aspects.ArchitecturePattern(name="ServiceDiscovery");
@@ -16,5 +17,12 @@ Eureka is Eureka::_infrastructure.Eureka
         mavenName="eureka"
         programmingLanguage="Java"
     }
- 
 }
+
+@technology(generic)
+AccountService is generic::_infrastructure.generic
+depends on nodes ServiceDiscovery {}
+
+@technology(generic)
+AuthService is generic::_infrastructure.generic
+depends on nodes AccountService {}

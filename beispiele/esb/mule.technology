@@ -1,0 +1,12 @@
+technology Generic{
+    infrastructure technologies {
+    	Mule{
+    		operation environments = "example";
+    	}
+    }
+    operation aspects {
+    	aspect ArchitecturePattern for infrastructure, containers{
+    		string name <mandatory>; 
+    	}
+    }
+}

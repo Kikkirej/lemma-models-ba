@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <intermediate:IntermediateOperationModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:intermediate="http://www.fhdo.de/lemma/operation/intermediate" sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/service-discovery/eureka.operation">
   <imports name="Eureka" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/technology/eureka.technology" importTypeName="TECHNOLOGY"/>
-  <infrastructureNodes name="Eureka" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.0/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Eureka.Eureka">
+  <imports name="generic" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/service-discovery/generic.technology" importTypeName="TECHNOLOGY"/>
+  <infrastructureNodes name="ServiceDiscovery" imports="//@imports.0" operationEnvironment="//@infrastructureNodes.0/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Eureka.Eureka">
     <defaultValues value="eureka" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.0"/>
     <defaultValues value="8761" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.1"/>
     <defaultValues value="SpringComponent" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.2"/>
@@ -43,6 +44,22 @@
         <properties name="programmingLanguage" type="string">
           <featureNames>MANDATORY</featureNames>
         </properties>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="AccountService" imports="//@imports.1" operationEnvironment="//@infrastructureNodes.1/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <dependsOnNodes name="ServiceDiscovery" qualifiedTechnologyName="Eureka.Eureka"/>
+    <reference import="//@imports.1">
+      <technology name="generic">
+        <environment environmentName="example"/>
+      </technology>
+    </reference>
+  </infrastructureNodes>
+  <infrastructureNodes name="AuthService" imports="//@imports.1" operationEnvironment="//@infrastructureNodes.2/@reference/@technology/@environment" qualifiedInfrastructureTechnologyName="Generic.generic">
+    <dependsOnNodes name="AccountService" qualifiedTechnologyName="Generic.generic"/>
+    <reference import="//@imports.1">
+      <technology name="generic">
+        <environment environmentName="example"/>
       </technology>
     </reference>
   </infrastructureNodes>

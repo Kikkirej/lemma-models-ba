@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="ASCII"?>
 <intermediate:IntermediateServiceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:intermediate="http://www.fhdo.de/lemma/service/intermediate" xmlns:intermediate_1="http://www.fhdo.de/lemma/data/intermediate" sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/api-versioning/api-versioning.services">
   <imports name="queryData" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/intermediate/data models/api-versioning.xmi" importTypeName="DATATYPES"/>
-  <microservices sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/api-versioning/api-versioning.services" name="vody.QueryService" version="v2_x_y" qualifiedName="v2_x_y.vody.QueryService" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
-    <interfaces name="Interface" qualifiedName="v2_x_y.vody.QueryService.Interface" visibility="ARCHITECTURE" hasImplementedOperations="true">
-      <operations name="query" qualifiedName="v2_x_y.vody.QueryService.Interface.query" visibility="OclUndefined">
-        <parameters name="request" qualifiedName="v2_x_y.vody.QueryService.Interface.query.request" exchangePattern="IN" communicationType="SYNCHRONOUS">
+  <imports name="shared" importUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/technology/shared.technology" importTypeName="TECHNOLOGY"/>
+  <microservices sourceModelUri="file://C:/Users/info/git/lemma-bachelorthesis/beispiele/api-versioning/api-versioning.services" name="vody.QueryService" qualifiedName="vody.QueryService" type="FUNCTIONAL" visibility="ARCHITECTURE" effectivelyImplemented="true">
+    <technologies name="shared" import="//@imports.1"/>
+    <endpoints communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json" technology="//@microservices.0/@technologies.0">
+      <addresses>example</addresses>
+    </endpoints>
+    <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+    <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+    <interfaces name="Interface" qualifiedName="vody.QueryService.Interface" visibility="ARCHITECTURE" hasImplementedOperations="true">
+      <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+      <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+      <operations name="query" qualifiedName="vody.QueryService.Interface.query" visibility="OclUndefined">
+        <protocols communicationType="SYNCHRONOUS" protocol="rest" dataFormat="application/json"/>
+        <protocols communicationType="ASYNCHRONOUS" protocol="mqtt" dataFormat="application/json"/>
+        <parameters name="request" qualifiedName="vody.QueryService.Interface.query.request" exchangePattern="IN" communicationType="SYNCHRONOUS">
           <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="Request" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="v1.query.Request" import="//@imports.0"/>
           <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="Request" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="v1.query.Request" import="//@imports.0"/>
         </parameters>
-        <parameters name="reply" qualifiedName="v2_x_y.vody.QueryService.Interface.query.reply" exchangePattern="OUT" communicationType="SYNCHRONOUS">
+        <parameters name="reply" qualifiedName="vody.QueryService.Interface.query.reply" exchangePattern="OUT" communicationType="SYNCHRONOUS">
           <type xsi:type="intermediate_1:IntermediateImportedComplexType" name="Result" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="v1.query.Result" import="//@imports.0"/>
           <originalType xsi:type="intermediate_1:IntermediateImportedComplexType" name="Result" origin="DATA_MODEL" kind="STRUCTURE" qualifiedName="v1.query.Result" import="//@imports.0"/>
         </parameters>

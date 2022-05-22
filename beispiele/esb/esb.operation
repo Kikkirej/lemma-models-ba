@@ -1,0 +1,8 @@
+import technology from "mule.technology" as esb
+	
+@technology(esb)
+ESB is esb::_infrastructure.Mule{
+	aspects{
+		esb::_aspects.ArchitecturePattern(name="ESB");
+	}
+}

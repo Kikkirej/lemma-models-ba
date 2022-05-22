@@ -13,12 +13,6 @@
     <defaultValues value="zuul" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.5"/>
     <defaultValues value="SpringComponent" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.7"/>
     <defaultValues value="Kotlin" technologySpecificProperty="//@infrastructureNodes.0/@reference/@technology/@properties.8"/>
-    <aspects name="ArchitecturePattern" import="//@imports.0">
-      <properties name="name" type="string">
-        <featureNames>MANDATORY</featureNames>
-      </properties>
-      <propertyValues value="API-Gateway" property="//@infrastructureNodes.0/@aspects.0/@properties.0"/>
-    </aspects>
     <usedByNodes name="AuthService" qualifiedTechnologyName="javaWithSpring.SpringBootAdmin"/>
     <reference import="//@imports.0">
       <technology name="Zuul">
